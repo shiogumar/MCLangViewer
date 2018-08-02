@@ -1,0 +1,122 @@
+#mclangviewer .langdata .translate {
+    display: none;
+}
+.translated-ltr #mclangviewer .langdata .translate, .translated-rtl #mclangviewer .langdata .translate  {
+    display: block;
+}
+#mclangviewer select:empty {
+    display: none;
+}
+#mclangviewer label.buttonlike {
+    display: inline-block;
+    position: relative;
+    padding: 2px;
+    border: 1px dotted black;
+    border-radius: 5px;
+}
+#mclangviewer label.buttonlike input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+#mclangviewer select {
+    font-size: 17px;
+    padding: 0 0 2px 0;
+}
+
+#langlistview {
+    color: #222222;
+}
+#langlistview, #langlistview textarea {
+    font-family: arial, "メイリオ", sans-serif;
+    font-size: 18px;
+}
+#langlistview textarea {
+    box-sizing: border-box;
+    width: 100%;
+}
+#mclangviewer h3 {
+    padding: 0 0 10px 0;
+    margin: 0;
+    color: white;
+}
+#mclangviewer .menu {
+    background: rgb(9, 92, 170);
+    padding: 10px;
+    border-radius: 10px
+}
+#mclangviewer .menuinner {
+    background: rgb(255, 249, 217);
+    padding: 10px;
+}
+#mclangviewer details {
+    margin: 10px;
+    padding: 10px;
+    background: rgb(164, 245, 171)
+}
+#mclangviewer details summary {
+    font-weight: bold;
+}
+#mclangviewer details summary+div {
+    margin: 10px 0;
+}
+
+#mclangviewer #langlistview .langdata[data-type="comment"],
+#mclangviewer #langlistview .langdata[data-type="comment"] .edittable {
+    color: green;
+    background: rgb(200, 245, 200);
+    padding: 0 8px;
+}
+#mclangviewer #langlistview .langdata[data-type="comment"] .translate:before {
+    content: "[翻訳] ";
+    color: red;
+    font-size: 12px;
+}
+#mclangviewer #langlistview .langdata[data-type="comment"] .translate {
+    padding: 0 0 0 8px;
+}
+#mclangviewer #langlistview .langdata[data-type="comment"] .translate .commentmark {
+    display: none;
+}
+#mclangviewer #langlistview .langdata[data-type="comment"] .edit:before {
+    content: "[編集]";
+    color: green;
+    font-size: 12px;
+}
+#mclangviewer #langlistview .langdata[data-type="comment"] .edit {
+    padding: 0 0 0 8px;
+}
+#mclangviewer #langlistview .langdata[data-type="comment"] .edittable {
+    padding: 7px;
+}
+#mclangviewer #langlistview .langdata[data-type="empty"] {
+    color: green;
+    background: rgb(200, 245, 200);
+    padding: 0 8px;
+}
+#mclangviewer #langlistview .langdata[data-type="data"] dd .notranslate,
+#mclangviewer #langlistview .langdata[data-type="data"] dd .translate,
+#mclangviewer #langlistview .langdata[data-type="data"] dd .edittable {
+    background: rgb(255, 250, 224);
+    padding: 8px;
+}
+#mclangviewer #langlistview .langdata[data-type="data"] dd .translate:before {
+    content: "▼ 翻訳";
+    color: red;
+    font-size: 12px;
+    display: block;
+    background: white;
+    margin: -8px -12px 8px -8px;
+}
+#mclangviewer #langlistview .langdata[data-type="data"] dd .edit:before {
+    content: "▼ 編集";
+    color: green;
+    font-size: 12px;
+    display:block;
+}
+#mclangviewer #langlistview .langdata[data-type="data"] dd .edittable {
+    padding: 7px;
+}
