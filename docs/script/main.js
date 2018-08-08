@@ -307,3 +307,35 @@
         };
     }());
 })(document);
+
+(function(document) {
+    var likeDetails = function() {
+        var list = document.body.querySelectorAll(".details");
+        var listener = function(event) {
+            var target = event.currentTarget;
+            target.parentNode.parentNode.dataset.open = target.checked;
+        };
+        for (var i = 0, imax = list.length; i < imax; i++) {
+            var d = list[i];
+            var item = d.querySelector(".summary");
+            if (item === null || item === undefined) {
+                item = document.createElement("div");
+                item.innerText = "詳細";
+                item.setAttribute("class", "summary");
+                d.insertBefore(item, d.firstChild);
+            }
+            var elem = document.createElement("input");
+            elem.setAttribute("type", "checkbox");
+            if (d.dataset.open == "true") {
+                elem.setAttribute("checked", "checked" );
+            }
+            elem.addEventListener("change", listener);
+            item.insertBefore(elem, item.firstChild);
+        }
+    };
+    if (document.readyState == "DONE") {
+        likeDetails();
+    } else {
+        document.addEventListener("DOMContentLoaded", likeDetails);
+    }
+}(document));

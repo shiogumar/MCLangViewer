@@ -12,25 +12,23 @@
     </head>
     <body>
         <div id="mclangviewer">
-            <h2>マインクラフト Lang ファイル 閲覧/編集 v0.1</h2>
+            <h2>マインクラフト Lang ファイル 閲覧/編集 v0.3</h2>
             <form class="menu" name="mclangviewermenu">
                 <h3>メニュー</h3>
                 <div class="menuinner"> 
-                    <div>
+                    <div class="menuline">
                         表示する MOD または言語ファイル：
                         <label class="buttonlike"><span id="inputfilename">ここにドラッグして下さい</span><input type="file" id="langfileselector" /></label>
                         <select id="langfileoptions"></select>
                     </div>
-                    <br />
-                    <div>
+                    <div class="menuline-wide">
                         <label><input type="radio" name="viewtype" value="plaintext" checked/>データ通りに表示</label>
                         <label><input type="radio" name="viewtype" value="removedtext" />装飾コードを抜いて表示</label>
                     </div>
-                    <br />
-                    <details>
-                        <summary>編集用メニュー</summary>
+                    <div class="menuline details">
+                        <div class="summary">編集用メニュー</div>
                         <div> 
-                            <div> 
+                            <div class="menuline"> 
                                 編集エリアに適用するファイル：
                                 <label class="buttonlike"><span id="inputedittingfilename">ここにドラッグして下さい</span><input type="file" id="edittinglangfileselector" /></label>
                                 <select id="edittinglangfileoptions"></select>
@@ -42,21 +40,28 @@
                                 <select id="oldlangfileoptions"></select>
                             </div>-->
                         </div>
-                    </details>
-                    <details>
-                        <summary>保存用メニュー</summary>
-                        <br />
-                        言語フォルダ名：<input type="textbox" id="savelangfolderpath" title="リソースパック化に必要。デフォルト：assets/&lt;MOD_ID&gt;/lang/"/><br />
-                        言語ファイル名：<input type="textbox" id="savelangfilename" title="言語ファイル名。en_us.lang や ja_jp.lang など"/><br />
-                        <br />
-                        データの出力範囲：
-                        <label title="編集や翻訳の有無に関わらず、全て出力します"><input type="radio" name="saveopt1" id="saveopt1_all" value="all" />全て</label>
-                        <label title="原文から変更があったデータのみ出力します"><input type="radio" name="saveopt1" id="saveopt1_changed" value="changed"/>変更されたデータのみ</label>
-                        <label title="編集エリアが開かれているデータのみ出力します"><input type="radio" name="saveopt1" id="saveopt1_editted" value="editted" />編集したデータのみ</label>
-                        <br /><br />
-                        <a id="langfilesave"><input type="button" value="言語ファイルとしてダウンロード" /></a>
-                        <a id="langpacksave"><input type="button" value="リソースパックとしてダウンロード" /></a>
-                    </details>
+                    </div>
+                    <div class="menuline details">
+                        <div class="summary">保存用メニュー</div>
+                        <div>
+                            <div class="menuline">
+                                言語フォルダ名：<input type="textbox" id="savelangfolderpath" title="リソースパック化に必要。デフォルト：assets/&lt;MOD_ID&gt;/lang/"/>
+                            </div>
+                            <div class="menuline">
+                                言語ファイル名：<input type="textbox" id="savelangfilename" title="言語ファイル名。en_us.lang や ja_jp.lang など"/>
+                            </div>
+                            <div class="menuline-wide">
+                                データの出力範囲：
+                                <label title="編集や翻訳の有無に関わらず、全て出力します"><input type="radio" name="saveopt1" id="saveopt1_all" value="all" checked="checked"/>全て</label>
+                                <label title="原文から変更があったデータのみ出力します"><input type="radio" name="saveopt1" id="saveopt1_changed" value="changed"/>変更されたデータのみ</label>
+                                <label title="編集エリアが開かれているデータのみ出力します"><input type="radio" name="saveopt1" id="saveopt1_editted" value="editted" />編集したデータのみ</label>
+                            </div>
+                            <div class="menuline">
+                                <a id="langfilesave"><input type="button" value="言語ファイルとしてダウンロード" /></a>
+                                <a id="langpacksave"><input type="button" value="リソースパックとしてダウンロード" /></a>
+                            </div>
+                        </div> 
+                    </div>
                 </div>
             </form>
             <hr />
