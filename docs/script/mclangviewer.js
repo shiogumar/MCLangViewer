@@ -18,6 +18,8 @@
         load: function(filename, text) {
             var langlistview = doc.querySelector("#langlistview");
             var innerHTML = "";
+
+            this.filename = filename;
     
             // 分割
             var lines = text.split(/\r\n|\r|\n/g);
@@ -132,29 +134,39 @@
                 var datatype = data.getAttribute("data-type");
                 var tmp = "";
                 if (datatype == "empty") {
-                    text += "\n";
-                    continue;
                 }
                 else if (datatype == "comment") {
                     tmp += data.querySelector(".commentmark").textContent;
+                    var notranslate = data.querySelector(".notranslate .plaintext");
+                    var translated = data.querySelector(".translate .plaintext");
+                    var editted = data.querySelector(".edittable");
+                    if (editted != null) {
+                        tmp += editted.value;
+                    }
+                    else {
+                        tmp += translated.textContent;
+                    }
                 }
                 else if (datatype == "data") {
                     tmp += data.querySelector("dt").textContent + "=";
-                }
-                var notranslate = data.querySelector(".notranslate ." + param.texttype);
-                var translated = data.querySelector(".translate ." + param.texttype);
-                var editted = data.querySelector(".edittable");
-                if (editted != null) {
-                    if (notranslate.textContent == editted.value) {
+                    var notranslate = data.querySelector(".notranslate ." + param.texttype);
+                    var translated = data.querySelector(".translate ." + param.texttype);
+                    var editted = data.querySelector(".edittable");
+                    if (editted != null) {
+                        if (param["selecttype"] == "changed" && notranslate.textContent == editted.value) {
+                            continue;
+                        }
+                        tmp += editted.value;
+                    }
+                    else if (param["selecttype"] != "editted") {
+                        if (param["selecttype"] == "changed" && notranslate.textContent == translated.textContent) {
+                            continue;
+                        }
+                        tmp += translated.textContent;
+                    }
+                    else {
                         continue;
                     }
-                    tmp += editted.value;
-                }
-                else {
-                    if (notranslate.textContent == translated.textContent) {
-                        continue;
-                    }
-                    tmp += translated.textContent;
                 }
                 text += tmp + "\n";
             }
@@ -167,6 +179,6 @@
         resetAll: function() {
             var langlistview = doc.querySelector("#langlistview");
             langlistview.innerHTML = "";
-        },
+        }
     };
 })(document);
