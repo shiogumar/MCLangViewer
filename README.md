@@ -4,6 +4,8 @@ MCLangViewer is a web application for displaying Minecraft's MOD language file.
 
 MCLangViewerは、MinecraftのMODの言語ファイルを表示するためのWebアプリケーションです。
 
+https://shiogumar.github.io/MCLangViewer/
+
 ## Description / 説明
 The wonderful MODs in the world can not play comfortably with the language barrier. I do not want such a thing!
 I want to make more people enjoy MOD. For that, I thought about making tools to help understand MOD.
